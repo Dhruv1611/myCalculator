@@ -98,7 +98,8 @@ function operate(o){
     count++;
     holder.innerHTML+=screen.innerHTML;
     if(count>1)
-        result+=calculate(num,parseInt(screen.innerHTML),o)
+        result+=calculate(num,parseInt(screen.innerHTML),oper)
+    oper = o
     num=Number(screen.innerHTML)
     screen.innerHTML="";
 }
