@@ -1,8 +1,6 @@
 var screen = document.getElementById("output")
 var holder = document.getElementById("placeholder")
-var count=0;
 var result=0;
-var num;
 var clickedStored;
 //=================== EVENT LISTNERS ==================================
 document.getElementById("0").addEventListener("click",num0)
@@ -92,16 +90,11 @@ function clear(){
     holder.innerHTML ="";
     num=[];
     operators=[];
+    result =0;
 }
 
 function operate(o){
-    count++;
     holder.innerHTML+=screen.innerHTML;
-    if(count>1)
-        result+=calculate(num,parseInt(screen.innerHTML),oper)
-    alert(result)
-    oper = o
-    num=Number(screen.innerHTML)
     screen.innerHTML="";
 }
 
@@ -126,28 +119,8 @@ function divide(){
 }
 
 function equalTo(){
-    result += calculate(num,Number(screen.innerHTML),holder.innerHTML.charAt(holder.innerHTML.length-2))
+    result = eval(holder.innerHTML + screen.innerHTML)
     screen.innerHTML = result;
     holder.innerHTML ="";
-    count=0;
     result=0;
-    num=0;
-}
-
-function calculate(a,b,o){
-    switch(o){
-        case("+"):
-                    return a+b;
-                    break;
-        case("-"):
-                    return a-b;
-                    break;
-        case("*"):
-                    return a*b;
-                    break;
-        case("/"):
-                    return a/b;
-                    break;
-
-    }
 }
