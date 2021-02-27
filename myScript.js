@@ -99,6 +99,7 @@ function operate(o){
     holder.innerHTML+=screen.innerHTML;
     if(count>1)
         result+=calculate(num,parseInt(screen.innerHTML),oper)
+    alert(result)
     oper = o
     num=Number(screen.innerHTML)
     screen.innerHTML="";
